@@ -1,0 +1,131 @@
+/* ======== Layout ======== */
+.why-choose-section {
+  padding: 100px 20px;
+  text-align: center;
+  background: #fff;
+}
+
+/* ======== Header ======== */
+.why-header h2 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #30395E;
+}
+
+.why-header h2 span {
+  color: #714DDD;
+}
+
+.why-header p {
+  color: #666;
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+/* ======== Tabs (Equal straight row) ======== */
+.why-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* ✅ equal height alignment */
+  gap: 30px;
+  margin-top: 60px;
+  flex-wrap: wrap;
+}
+
+.why-tab {
+  background: #fff;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 25px 30px;
+  width: 280px;              /* ✅ consistent width */
+  height: 160px;             /* ✅ consistent height */
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.why-tab:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.why-tab.active {
+  border-color: #714DDD;
+  box-shadow: 0 8px 20px rgba(113,77,221,0.25);
+  transform: scale(1.05);
+}
+
+.why-tab-icon {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.why-tab h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #30395E;
+}
+
+/* ======== Active Content Area ======== */
+.why-content {
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.why-detail-card {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  max-width: 1000px;
+  text-align: left;
+}
+
+.why-text h3 {
+  font-size: 1.6rem;
+  color: #30395E;
+  margin-bottom: 15px;
+}
+
+.why-text p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.why-image {
+  width: 340px;
+  height: auto;
+  border-radius: 15px;
+  object-fit: contain;
+}
+
+/* ======== Responsive ======== */
+@media (max-width: 992px) {
+  .why-tabs {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .why-detail-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .why-image {
+    width: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .why-tab {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+}

@@ -1,0 +1,134 @@
+/* --- Section Layout --- */
+.ai-section {
+  padding: 6rem 10%;
+  background: #ffffff;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* --- Header --- */
+.ai-subtitle {
+  color: #7d7d7d;
+  letter-spacing: 2px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.ai-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0b0b0b;
+  margin-top: 0.5rem;
+}
+
+.ai-highlight {
+  color: #714DDD;
+}
+
+.ai-desc {
+  max-width: 620px;
+  margin: 1rem auto 3rem;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* --- Cards Layout --- */
+.ai-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* --- Base Card --- */
+.ai-card {
+  border-radius: 1.5rem;
+  padding: 2.2rem;
+  width: 300px;
+  text-align: left;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 0.9s ease forwards;
+}
+
+/* --- Shadow Control --- */
+.ai-card.with-shadow {
+  background: #fff;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+}
+
+.ai-card.no-shadow {
+  background: #fff;
+  box-shadow: none;
+}
+
+.ai-card.with-shadow:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
+}
+
+.ai-card.no-shadow:hover {
+  transform: translateY(-10px);
+}
+
+/* --- Card Content --- */
+.ai-number {
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #714DDD, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.ai-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 0.6rem;
+}
+
+.ai-card-desc {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.ai-link {
+  font-weight: 600;
+  color: #30395E;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.ai-link:hover {
+  color: #7c3aed;
+}
+
+/* --- Animation --- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .ai-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ai-card {
+    width: 100%;
+    max-width: 350px;
+  }
+}

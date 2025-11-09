@@ -1,0 +1,172 @@
+/* --- Layout reset ------------------------------------------------------- */
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { padding-top: 72px; }
+
+/* --- Header container --------------------------------------------------- */
+.header {
+  position: fixed;
+  top: 0;
+  inset-inline: 0;
+  height: 72px;
+  background: #fff;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(12px, 3vw, 28px);
+  padding: 0 clamp(16px, 4vw, 40px);
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+/* --- Logo --------------------------------------------------------------- */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.logo img {
+  height: 55px;              /* ⬆️ Increased from 40px to 55px */
+  width: auto;               /* maintain aspect ratio */
+  transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+  transform: scale(1.05);    /* subtle hover animation for polish */
+}
+
+.logo-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #30395E;
+}
+
+/* --- Nav --------------------------------------------------------------- */
+.nav {
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(12px, 3vw, 28px);
+}
+
+.nav a {
+  white-space: nowrap;
+  text-decoration: none;
+  color: #30395E;
+  font-weight: 500;
+  position: relative;
+  transition: color .25s, transform .2s ease;
+}
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -6px;
+  height: 2px; width: 0%;
+  margin-inline: auto;
+  background-color: #714DDD;
+  transition: width .25s ease;
+}
+.nav a:hover { color: #714DDD; transform: translateY(-2px); }
+.nav a:hover::after { width: 100%; }
+
+/* --- CTA --------------------------------------------------------------- */
+.contact-btn {
+  justify-self: end;
+  background-color: #714DDD;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 28px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .2s ease, background-color .25s ease;
+}
+.contact-btn:hover { background-color: #5c3cc3; transform: translateY(-2px); }
+
+/* --- Hamburger ---------------------------------------------------------- */
+.menu-toggle {
+  display: none;
+  justify-self: end;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background: #714DDD; /* brand color */
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+
+.menu-toggle.active .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 900px) {
+  .menu-toggle { display: inline-flex; }
+  .contact-btn { display: none; }
+
+  @media (max-width: 600px) {
+  .logo img {
+    height: 45px;  /* slightly reduced for narrow screens */
+  }
+}
+
+  .nav {
+    position: absolute;
+    top: 72px;
+    left: 50%;
+    transform: translate(-50%, -120%);
+    width: 90%; /* ✅ make the menu a centered “card” */
+    background: #fff;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px; /* ✅ more space between menu items */
+    padding: 35px 0; /* ✅ taller card padding */
+    border-radius: 20px; /* ✅ rounded card look */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* ✅ soft card shadow */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 99;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+  }
+
+  /* ✅ Menu opens manually and stays open */
+  .nav.open {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  /* ✅ Each link spacing & size */
+  .nav a {
+    padding: 10px 0;
+    font-size: 1.05rem;
+    width: 100%;
+    text-align: center;
+    transition: background 0.25s ease;
+  }
+
+  /* Optional hover effect for card look */
+  .nav a:hover {
+    background: rgba(113, 77, 221, 0.06);
+    color: #714DDD;
+  }
+}
