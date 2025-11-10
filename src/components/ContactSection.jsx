@@ -51,8 +51,7 @@ const ContactSection = () => {
           <div className="form-header">
             <h2>Let’s Connect with <span>Brinix</span></h2>
             <p>
-              Have a project in mind? Tell us about it — we’ll respond within 24 hours.  
-              Let’s build something amazing together!
+             Ready to elevate your brand? Let’s collaborate we’ll get back to you within 24 hours.
             </p>
           </div>
 

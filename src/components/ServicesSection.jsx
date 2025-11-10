@@ -6,9 +6,9 @@ import {
   Code,
   Megaphone,
   Video,
-  FileText,
-  Globe,
   Star,
+  Globe,
+  FileText,
 } from "lucide-react";
 import "./ServicesSection.css";
 
@@ -44,10 +44,10 @@ const services = [
       "Creating compelling video content with professional editing and storytelling.",
   },
   {
-    icon: <FileText size={40} />,
-    title: "Resume Building",
+    icon: <Star size={40} />,
+    title: "Branding",
     description:
-      "Helping professionals craft standout resumes that leave a lasting impression.",
+      "Building consistent and powerful brand identities that resonate with your audience.",
   },
   {
     icon: <Globe size={40} />,
@@ -56,10 +56,10 @@ const services = [
       "Developing dynamic and fully customizable WordPress websites for all needs.",
   },
   {
-    icon: <Star size={40} />,
-    title: "Branding",
+    icon: <FileText size={40} />,
+    title: "Resume Building",
     description:
-      "Building consistent and powerful brand identities that resonate with your audience.",
+      "I design professional, ATS-friendly resumes that highlight skills, education, and achievements effectively.",
   },
 ];
 

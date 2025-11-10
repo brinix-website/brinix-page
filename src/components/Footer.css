@@ -1,8 +1,8 @@
 /* ===== Footer Base ===== */
 .footer {
-  background: linear-gradient(135deg, #30395E 0%, #000000 100%);
-  color: #fff;
-  padding: 5rem 10% 3rem;
+  background: linear-gradient(135deg, #ffffff 20%, #714DDD 100%);
+  color: #30395E;
+  padding: 5rem 8% 3rem;
   font-family: "Poppins", sans-serif;
   overflow: hidden;
 }
@@ -10,58 +10,72 @@
 /* ===== Layout ===== */
 .footer-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 3.5rem;
+  grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+  gap: 3rem;
   align-items: flex-start;
-  margin-bottom: 3rem;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+}
+
+@media (max-width: 992px) {
+  .footer-container {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2.5rem;
+  }
 }
 
 /* ===== Brand Section ===== */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .footer-logo-section {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 1.8rem;
+  gap: 12px;
+  margin-bottom: 1.2rem;
 }
 
-
 .footer-logo-img {
-  width: 75px;               /* ⬆️ increased from 65px for better visibility */
+  width: 70px;
   height: auto;
   object-fit: contain;
-  display: block;            /* ✅ ensures the image renders properly */
-  filter: none;              /* ✅ prevent any color filter */
-  opacity: 1;              /* ✅ make sure not faded */
+  display: block;
+  filter: none;
+  opacity: 1;
 }
 
 .footer-logo-text {
-  font-size: 2.4rem;         /* slightly increased for balance with larger logo */
+  font-size: 2.3rem;
   font-weight: 800;
-  color: #fff;               /* ✅ ensure visibility on dark background */
+  color: #30395E;
   letter-spacing: 1px;
 }
+
 .footer-description {
-  font-size: 1.15rem;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 380px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #30395E;
+  max-width: 360px;
 }
 
 .footer-description span {
-  color: #fff;
+  color: #714DDD;
   font-weight: 600;
 }
 
 /* ===== Social Icons ===== */
 .footer-socials {
   display: flex;
-  gap: 15px;
-  margin-top: 2rem;
+  gap: 14px;
+  margin-top: 1.8rem;
 }
 
 .footer-socials a {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.12);
+  color: #30395E;
+  background: rgba(255, 255, 255, 0.15);
   padding: 11px;
   border-radius: 50%;
   font-size: 1.3rem;
@@ -75,17 +89,30 @@
   box-shadow: 0 8px 20px rgba(255, 255, 255, 0.25);
 }
 
-/* ===== Headings ===== */
+/* ===== Section Headings ===== */
 .footer-links h3,
 .footer-services h3,
 .footer-contact h3 {
-  font-size: 1.4rem;
-  margin-bottom: 1.2rem;
-  color: #fff;
+  font-size: 1.35rem;
+  margin-bottom: 1.1rem;
+  color: #30395E;
   font-weight: 700;
+  position: relative;
 }
 
-/* ===== Links & Lists ===== */
+.footer-links h3::after,
+.footer-services h3::after,
+.footer-contact h3::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #714DDD;
+  margin-top: 0.4rem;
+  border-radius: 3px;
+}
+
+/* ===== Lists ===== */
 .footer-links ul,
 .footer-services ul {
   list-style: none;
@@ -101,59 +128,69 @@
 /* ===== Quick Links ===== */
 .footer-links a {
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 1.1rem;
+  color: #30395E;
+  font-size: 1.05rem;
   transition: color 0.3s ease, padding-left 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: #fff;
-  padding-left: 5px;
+  color: #714DDD;
+  padding-left: 6px;
 }
 
-/* ===== Footer Services (Clickable Smooth Scroll) ===== */
+/* ===== Footer Services ===== */
 .footer-services li {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
+  color: #30395E;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .footer-services li:hover {
-  color: #fff;
+  color: #714DDD;
   transform: translateX(5px);
 }
 
-/* ===== Contact Section ===== */
+/* ===== Contact Section (Updated Alignment Fix) ===== */
 .footer-contact-item {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  align-items: center; /* ✅ Centers icons and text perfectly */
+  gap: 12px;
   margin-bottom: 16px;
 }
 
 .footer-icon {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: #fff;
-  opacity: 0.9;
+  border-radius: 50%;
+  min-width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0;
+  padding: 0;
 }
 
 .footer-contact a,
 .footer-contact p {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
+  color: #30395E;
   text-decoration: none;
   transition: color 0.3s ease;
+  line-height: 1.6;
 }
 
 .footer-contact a:hover {
-  color: #fff;
+  color: #714DDD;
 }
 
-/* ===== Newsletter ===== */
+/* ===== Newsletter Section ===== */
 .footer-newsletter {
   text-align: center;
-  background: rgba(255, 255, 255, 0.08);
+  background: #714DDD;
+  color: #fff;
   border-radius: 18px;
   padding: 3rem 2rem;
   max-width: 850px;
@@ -164,13 +201,13 @@
 .footer-newsletter h3 {
   font-size: 1.7rem;
   font-weight: 700;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
 }
 
 .footer-newsletter p {
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 2rem;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.6;
 }
 
@@ -205,7 +242,7 @@
 }
 
 .newsletter-form button:hover {
-  background: #714DDD;
+  background: #30395E;
   color: #fff;
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(113, 77, 221, 0.25);
@@ -213,7 +250,7 @@
 
 /* ===== Spinner ===== */
 .spinner {
-  border: 3px solid rgba(255, 255, 255, 0.3);
+  border: 3px solid #714DDD;
   border-top: 3px solid #714DDD;
   border-radius: 50%;
   width: 22px;
@@ -242,7 +279,7 @@
 
 /* ===== Bottom Bar ===== */
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid #fff;
   margin-top: 4rem;
   padding-top: 1.5rem;
   display: flex;
@@ -250,7 +287,7 @@
   align-items: center;
   text-align: center;
   gap: 0.4rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: #30395E;
   font-size: 1.05rem;
 }
 
@@ -262,29 +299,11 @@
 /* ===== Responsive Design ===== */
 @media (max-width: 992px) {
   .footer {
-    padding: 4rem 8% 2rem;
-  }
-  @media (max-width: 480px) {
-  .footer-logo-img {
-    width: 60px; /* smaller but still visible */
+    padding: 4rem 6% 2.5rem;
   }
 
   .footer-logo-text {
-    font-size: 1.8rem;
-  }
-}
-
-
-  .footer-container {
-    gap: 2.5rem;
-  }
-
-  .footer-newsletter {
-    padding: 2.5rem 1.5rem;
-  }
-
-  .footer-logo-text {
-    font-size: 1.9rem;
+    font-size: 2rem;
   }
 
   .footer-description {
@@ -297,10 +316,7 @@
     font-size: 1rem;
   }
 
-  .newsletter-form input {
-    width: 100%;
-  }
-
+  .newsletter-form input,
   .newsletter-form button {
     width: 100%;
   }
@@ -308,7 +324,7 @@
 
 @media (max-width: 480px) {
   .footer-logo-img {
-    width: 50px;
+    width: 55px;
   }
 
   .footer-logo-text {
@@ -321,12 +337,6 @@
 
   .footer-newsletter p {
     font-size: 1rem;
-  }
-
-  .newsletter-form input,
-  .newsletter-form button {
-    font-size: 1rem;
-    width: 100%;
   }
 
   .footer-bottom {

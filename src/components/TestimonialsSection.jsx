@@ -14,43 +14,43 @@ import "slick-carousel/slick/slick-theme.css";
 
 const testimonials = [
   {
-    name: "Serhiy Hipskyy",
-    title: "CEO Universal",
+    name: "Ahsan",
+    title: "Business Company",
     review:
       "Working with this team was a seamless experience. Their attention to detail and creativity made our project a success.",
     image: "https://randomuser.me/api/portraits/men/11.jpg",
   },
   {
-    name: "Justus Menke",
-    title: "CEO Enroman",
+    name: "Amalnass",
+    title: "Managing Director",
     review:
       "They transformed our digital presence beautifully. Every step was handled professionally and efficiently.",
     image: "https://randomuser.me/api/portraits/men/12.jpg",
   },
   {
-    name: "Britain Eriksen",
-    title: "CEO Universal",
+    name: "IT Company",
+    title: "Managing Director",
     review:
       "A fantastic experience! Their design approach truly brought our brand to life — highly recommend their services.",
     image: "https://randomuser.me/api/portraits/men/13.jpg",
   },
   {
-    name: "Sophia Turner",
-    title: "Marketing Head",
+    name: "Aananth",
+    title: "Co-Founder",
     review:
       "The UI/UX design exceeded expectations. Everything feels intuitive and perfectly aligned with our brand.",
     image: "https://randomuser.me/api/portraits/women/21.jpg",
   },
   {
-    name: "David Wong",
-    title: "Product Manager",
+    name: "Business Company",
+    title: "Managing Director",
     review:
       "Excellent collaboration and creative thinking throughout. The team was responsive and innovative.",
     image: "https://randomuser.me/api/portraits/men/22.jpg",
   },
   {
-    name: "Emily Carter",
-    title: "Creative Director",
+    name: "Shipping Company",
+    title: "Managing Director",
     review:
       "They delivered exactly what we envisioned and more. The end result speaks volumes of their expertise.",
     image: "https://randomuser.me/api/portraits/women/23.jpg",

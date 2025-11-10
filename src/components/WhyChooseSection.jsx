@@ -10,9 +10,9 @@ const features = [
   {
     id: 1,
     title: "Reliable & Secure",
-    subtitle: "Dependable infrastructure that powers your growth.",
+    subtitle: "End-to-End Support",
     description:
-      "At Brinix, we ensure consistent performance and reliability in every solution we build. Our secure frameworks and robust systems safeguard your data while keeping operations smooth and stable.",
+      "At Brinix, we don’t just deliver digital solutions we build dependable systems designed for growth, stability, and performance. Our infrastructure is built on trust, innovation, and technical excellence, ensuring your business operates seamlessly and securely at every stage.",
     icon: <ShieldCheck size={22} />,
     image: reliabilityImg,
     color: "#007bff",
@@ -49,8 +49,7 @@ const WhyChooseSection = () => {
           Why Choose <span>Brinix?</span>
         </h2>
         <p>
-          Explore what makes Brinix stand apart — innovation, reliability, and
-          client dedication.
+          Brinix, your success is the foundation of everything we build.
         </p>
       </div>
 

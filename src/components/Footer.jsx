@@ -59,8 +59,7 @@ const Footer = () => {
             <h2 className="footer-logo-text">Brinix</h2>
           </div>
           <p className="footer-description">
-            Empowering brands through <span>creative digital innovation</span>.  
-            We transform your ideas into elegant, user-centered digital experiences.
+            Blending creativity and technology to design digital experiences that connect people and brands beautifully.
           </p>
 
           <div className="footer-socials">

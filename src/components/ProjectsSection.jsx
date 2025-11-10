@@ -1,56 +1,80 @@
 import React, { useEffect, useRef } from "react";
 import "./ProjectsSection.css";
 
-// ✅ Import your PNG images directly
+// ✅ Import images
 import project1 from "../assets/project1.png";
 import project2 from "../assets/project2.png";
 import project3 from "../assets/project3.png";
 import project4 from "../assets/project4.png";
 import project5 from "../assets/project5.png";
 import project6 from "../assets/project6.png";
+import project7 from "../assets/project7.png"; // 🆕 new project image
+import project8 from "../assets/project8.png"; // 🆕 new project image
 
 const projectsData = [
   {
     id: 1,
-    title: "AI-Powered Design Tool",
+    title: "Logo Creation",
     description:
-      "Harness AI to create smarter, faster, and visually striking designs in real-time.",
+      "Designed a modern, scalable brand logo that reflects the company’s identity and enhances visual recognition across digital platforms.",
     image: project1,
+    link: "/project/ai-design",
   },
   {
     id: 2,
-    title: "E-Commerce Reimagined",
+    title: "Apartment Rental Website",
     description:
-      "Next-level shopping with personalized recommendations and immersive UI.",
+      "Redesigned a user-friendly apartment rental platform with an improved layout, better navigation, and a seamless booking experience.",
     image: project2,
+    link: "/project/ecommerce",
   },
   {
     id: 3,
-    title: "Cloud Performance Dashboard",
+    title: "University Website UI Design",
     description:
-      "A futuristic analytics tool for monitoring and scaling infrastructure seamlessly.",
+      "Developed a futuristic UI concept for a university website focused on AI and technology programs, blending innovation with academic clarity.",
     image: project3,
+    link: "/project/cloud-dashboard",
   },
   {
     id: 4,
-    title: "FinTech Mobile Experience",
+    title: "Graphic Design",
     description:
-      "Reinventing digital banking with stunning interfaces and secure interactions.",
+      "Created professional and creative post designs for shipping and business companies, optimized for brand visibility and audience engagement.",
     image: project4,
+    link: "/project/fintech",
   },
   {
     id: 5,
-    title: "AR Real Estate Explorer",
+    title: "HRIS Software Mobile Application",
     description:
-      "Explore properties with immersive AR walkthroughs and smart visual insights.",
+      "Enhanced the HRIS web interface and designed a new mobile app UI, delivering a clean, intuitive, and efficient business management experience.",
     image: project5,
+    link: "/project/ar-realestate",
   },
   {
     id: 6,
-    title: "Healthcare AI Assistant",
+    title: "E-commerce Website UI Redesign",
     description:
-      "A voice-powered health tracker that supports daily wellness and medical insights.",
+      "Built a fast and responsive e-commerce website using React.js and modern libraries, ensuring a smooth, high-performance shopping experience.",
     image: project6,
+    link: "/project/health-ai",
+  },
+  {
+    id: 7,
+    title: "Logo Design",
+    description:
+      "Developed a sleek and tech-driven logo design that captures the innovation and reliability of the IT services brand identity.",
+    image: project7,
+    link: "/project/portfolio-builder",
+  },
+  {
+    id: 8,
+    title: "Industry Website Design",
+    description:
+      "Created a dynamic and responsive website for an industrial services company using React.js, focused on performance, usability, and modern aesthetics.",
+    image: project8,
+    link: "/project/travel-platform",
   },
 ];
 
@@ -58,6 +82,7 @@ const ProjectsSection = () => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
+    const cards = sectionRef.current.querySelectorAll(".project-card");
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -67,35 +92,34 @@ const ProjectsSection = () => {
       { threshold: 0.2 }
     );
 
-    const cards = sectionRef.current.querySelectorAll(".bento-card");
     cards.forEach((card) => observer.observe(card));
-
     return () => observer.disconnect();
   }, []);
 
   return (
-    // ✅ Added id="projects" for smooth scroll target
     <section className="projects-section" id="projects" ref={sectionRef}>
       <div className="projects-header">
-        {/* ✅ Changed anchor text back to proper heading with working link */}
-        <h2>
-          <a href="#projects" className="projects-link">
-            Projects
-          </a>
-        </h2>
-        <p>Where creativity meets technology — explore our latest innovations.</p>
+        <h2>Our Latest Projects</h2>
+        <p>Crafted with passion, designed for performance, built for impact.</p>
       </div>
 
-      <div className="bento-grid">
-        {projectsData.map((project, index) => (
-          <div className={`bento-card item-${index + 1}`} key={project.id}>
-            <div className="bento-image">
+      <div className="projects-grid">
+        {projectsData.map((project) => (
+          <div className="project-card" key={project.id}>
+            <div className="project-image">
               <img src={project.image} alt={project.title} />
+              <div className="overlay">
+                {/* <button
+                  className="view-btn"
+                  onClick={() => (window.location.href = project.link)}
+                >
+                  View Project
+                </button> */}
+              </div>
             </div>
-            <div className="bento-overlay">
+            <div className="project-info">
               <h3>{project.title}</h3>
               <p>{project.description}</p>
-              <button className="bento-btn">View Project</button>
             </div>
           </div>
         ))}

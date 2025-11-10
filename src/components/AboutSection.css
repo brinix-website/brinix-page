@@ -70,8 +70,7 @@
 .about-image {
   width: 100%;
   max-width: 480px;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;  
 }
 
 /* Stats Section */

@@ -9,15 +9,23 @@ body { padding-top: 72px; }
   top: 0;
   inset-inline: 0;
   height: 72px;
-  background: #fff;
+  background: rgba(0, 0, 0, 0.95); /* Black on load */
+  backdrop-filter: blur(10px);
   z-index: 100;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: clamp(12px, 3vw, 28px);
   padding: 0 clamp(16px, 4vw, 40px);
-  max-width: 1200px;
+  max-width: 2000px;
   margin-inline: auto;
+  transition: background 0.4s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* ✅ Transparent when scrolled */
+.header.scrolled {
+  background: transparent;
+  box-shadow: none;
 }
 
 /* --- Logo --------------------------------------------------------------- */
@@ -27,20 +35,27 @@ body { padding-top: 72px; }
   gap: 10px;
   cursor: pointer;
 }
+
 .logo img {
-  height: 55px;              /* ⬆️ Increased from 40px to 55px */
-  width: auto;               /* maintain aspect ratio */
-  transition: transform 0.3s ease;
+  height: 55px;
+  width: auto;
+  transition: filter 0.4s ease, transform 0.3s ease;
+  filter: brightness(0) invert(1); /* White logo initially */
 }
 
-.logo:hover img {
-  transform: scale(1.05);    /* subtle hover animation for polish */
+.header.scrolled .logo img {
+  filter: none; /* Original dark logo when scrolled */
 }
 
 .logo-name {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #30395E;
+  color: #fff;
+  transition: color 0.4s ease;
+}
+
+.header.scrolled .logo-name {
+  color: #30395E; /* Dark text after scroll */
 }
 
 /* --- Nav --------------------------------------------------------------- */
@@ -52,13 +67,17 @@ body { padding-top: 72px; }
 }
 
 .nav a {
-  white-space: nowrap;
   text-decoration: none;
-  color: #30395E;
+  color: #fff;
   font-weight: 500;
   position: relative;
-  transition: color .25s, transform .2s ease;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
+
+.header.scrolled .nav a {
+  color: #30395E;
+}
+
 .nav a::after {
   content: "";
   position: absolute;
@@ -66,10 +85,92 @@ body { padding-top: 72px; }
   height: 2px; width: 0%;
   margin-inline: auto;
   background-color: #714DDD;
-  transition: width .25s ease;
+  transition: width 0.25s ease;
 }
-.nav a:hover { color: #714DDD; transform: translateY(-2px); }
-.nav a:hover::after { width: 100%; }
+
+.nav a:hover {
+  color: #714DDD;
+  transform: translateY(-2px);
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* --- Services Dropdown -------------------------------------------------- */
+.services-dropdown {
+  position: relative;
+  z-index: 9999;
+}
+
+/* Dropdown trigger */
+.dropdown-trigger {
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* When scrolled — change trigger color */
+.header.scrolled .dropdown-trigger {
+  color: #30395E;
+}
+
+.dropdown-trigger:hover {
+  color: #714DDD;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  background: #30395E;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  min-width: 230px;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  z-index: 9999;
+}
+
+/* ✅ Show dropdown only on home (not scrolled) */
+.header:not(.scrolled) .services-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* ✅ Hide dropdown when scrolled */
+.header.scrolled .dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Dropdown links */
+.dropdown-menu a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 18px;
+  font-size: 0.97rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+  background: #714DDD;
+  color: #fff;
+  padding-left: 24px;
+}
 
 /* --- CTA --------------------------------------------------------------- */
 .contact-btn {
@@ -81,9 +182,13 @@ body { padding-top: 72px; }
   border-radius: 28px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform .2s ease, background-color .25s ease;
+  transition: transform 0.2s ease, background-color 0.25s ease;
 }
-.contact-btn:hover { background-color: #5c3cc3; transform: translateY(-2px); }
+
+.contact-btn:hover {
+  background-color: #5c3cc3;
+  transform: translateY(-2px);
+}
 
 /* --- Hamburger ---------------------------------------------------------- */
 .menu-toggle {
@@ -101,10 +206,14 @@ body { padding-top: 72px; }
 .bar {
   width: 25px;
   height: 3px;
-  background: #714DDD; /* brand color */
+  background: #fff;
   margin: 4px 0;
   border-radius: 2px;
   transition: all 0.4s ease;
+}
+
+.header.scrolled .bar {
+  background: #30395E;
 }
 
 .menu-toggle.active .bar:nth-child(1) {
@@ -117,37 +226,31 @@ body { padding-top: 72px; }
   transform: translateY(-7px) rotate(-45deg);
 }
 
+/* --- Responsive Nav ----------------------------------------------------- */
 @media (max-width: 900px) {
   .menu-toggle { display: inline-flex; }
   .contact-btn { display: none; }
-
-  @media (max-width: 600px) {
-  .logo img {
-    height: 45px;  /* slightly reduced for narrow screens */
-  }
-}
 
   .nav {
     position: absolute;
     top: 72px;
     left: 50%;
     transform: translate(-50%, -120%);
-    width: 90%; /* ✅ make the menu a centered “card” */
-    background: #fff;
+    width: 90%;
+    background: rgba(0, 0, 0, 0.95);
     flex-direction: column;
     align-items: center;
-    gap: 22px; /* ✅ more space between menu items */
-    padding: 35px 0; /* ✅ taller card padding */
-    border-radius: 20px; /* ✅ rounded card look */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* ✅ soft card shadow */
+    gap: 22px;
+    padding: 35px 0;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    z-index: 99;
+    z-index: 9999;
     transition: transform 0.35s ease, opacity 0.35s ease;
   }
 
-  /* ✅ Menu opens manually and stays open */
   .nav.open {
     transform: translate(-50%, 0);
     opacity: 1;
@@ -155,7 +258,6 @@ body { padding-top: 72px; }
     pointer-events: auto;
   }
 
-  /* ✅ Each link spacing & size */
   .nav a {
     padding: 10px 0;
     font-size: 1.05rem;
@@ -164,9 +266,40 @@ body { padding-top: 72px; }
     transition: background 0.25s ease;
   }
 
-  /* Optional hover effect for card look */
   .nav a:hover {
-    background: rgba(113, 77, 221, 0.06);
-    color: #714DDD;
+    background: rgba(113, 77, 221, 0.12);
+    color: #fff;
+  }
+
+  /* ✅ Mobile dropdown always visible (no scroll restriction) */
+  .dropdown-menu {
+    position: static;
+    background: #30395E;
+    box-shadow: none;
+    border-radius: 0;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: auto;
+  }
+
+  .dropdown-menu a {
+    padding: 8px 0;
+    color: #fff;
+  }
+
+  .dropdown-menu a:hover {
+    background: rgba(113, 77, 221, 0.2);
+  }
+}
+
+/* --- Small Screen Logo Adjustments -------------------------------------- */
+@media (max-width: 600px) {
+  .logo img {
+    height: 45px;
   }
 }

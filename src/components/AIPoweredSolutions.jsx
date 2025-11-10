@@ -4,20 +4,20 @@ import "./AIPoweredSolutions.css";
 const solutions = [
   {
     id: "01",
-    title: "Automated Decision Systems",
-    desc: "Empower your business with intelligent automation that optimizes workflows and reduces human error using adaptive AI models.",
+    title: "AI-Driven Collaboration Platform",
+    desc: "Transform your business operations with intelligent automation powered by adaptive AI.",
     shadow: false,
   },
   {
     id: "02",
-    title: "AI Collaboration Hub",
-    desc: "Brinix enables teams to collaborate with AI-driven assistants that help manage tasks, generate content, and streamline communication.",
+    title: "AI-Driven Marketing & Content",
+    desc: "We use AI-driven marketing automation, analytics, and content generation to reach the right audience, increase engagement, and deliver measurable results.",
     shadow: true, // Only this one keeps shadow
   },
   {
     id: "03",
-    title: "Smart Data Analytics",
-    desc: "Gain actionable insights through advanced machine learning algorithms that analyze data in real time for better business outcomes.",
+    title: "Our Approach",
+    desc: "We don’t just use AI we integrate it thoughtfully, At Brinix, technology enhances creativity, not replaces it.",
     shadow: false,
   },
 ];
@@ -31,7 +31,7 @@ const AIPoweredSolutions = () => {
           AI Powered <span className="ai-highlight">Solutions</span>
         </h2>
         <p className="ai-desc">
-          At Brinix, we’re shaping the future with AI solutions that combine intelligence, design, and efficiency — built to transform how businesses operate.
+          At Brinix, we’re shaping the future with AI solutions that combine intelligence, design, and efficiency built to transform how businesses operate.
         </p>
       </div>
 

@@ -1,8 +1,9 @@
-/* ---- Base Section ---- */
+/* ===== Base Section ===== */
 .projects-section {
-  padding: 5rem 8%;
+  padding: 6rem 10%;
   background: #f9fafb;
   overflow: hidden;
+  position: relative;
 }
 
 .projects-header {
@@ -12,181 +13,170 @@
 
 .projects-header h2 {
   font-size: 2.6rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #0f172a;
   margin-bottom: 0.5rem;
 }
 
-/* ---- Projects Header Link Styling ---- */
-.projects-header .projects-link {
-  color: #0f172a;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
 .projects-header p {
-  color: #64748b;
-  font-size: 1.05rem;
+  color: #475569;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
-/* ---- Bento Grid ---- */
-.bento-grid {
+/* ===== Grid Layout ===== */
+.projects-grid {
   display: grid;
-  grid-template-areas:
-    "item1 item2 item3"
-    "item4 item2 item5"
-    "item4 item6 item5";
-  gap: 1.2rem;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
 }
 
-.bento-card {
-  position: relative;
+/* ===== Card ===== */
+.project-card {
+  background: #fff;
   border-radius: 18px;
   overflow: hidden;
-  background: #fff;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  transform: scale(0.98);
+  /* box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08); */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   opacity: 0;
-  transition: all 0.8s ease;
-  cursor: pointer;
+  transform: translateY(40px);
 }
 
-.bento-card.visible {
+.project-card.visible {
   opacity: 1;
-  transform: scale(1);
+  transform: translateY(0);
+  transition: all 0.8s ease;
 }
 
-.bento-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(15, 23, 42, 0.15);
 }
 
-.bento-image {
+/* ===== Image ===== */
+.project-image {
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: 240px;
   overflow: hidden;
 }
 
-.bento-image img {
+.project-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  transition: transform 0.5s ease;
 }
 
-.bento-card:hover .bento-image img {
+.project-card:hover .project-image img {
   transform: scale(1.08);
 }
 
-/* ---- Overlay ---- */
-.bento-overlay {
+/* ===== Overlay Hover ===== */
+.overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, #714DDD, rgba(15, 23, 42, 0.05));
+  background: rgba(48, 57, 94, 0.55);
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 1.3rem;
-  color: #fff;
+  justify-content: center;
+  align-items: center;
   opacity: 0;
   transition: opacity 0.4s ease;
 }
 
-.bento-card:hover .bento-overlay {
+.project-card:hover .overlay {
   opacity: 1;
 }
 
-.bento-overlay h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.4rem;
-  font-weight: 600;
-}
-
-.bento-overlay p {
-  font-size: 0.9rem;
-  margin-bottom: 0.8rem;
-  line-height: 1.45;
-  color: #e2e8f0;
-}
-
-.bento-btn {
-  background: linear-gradient(135deg, #30395E, #30395E);
-  border: none;
+.view-btn {
+  background: linear-gradient(135deg, #714ddd, #5c3cc3);
   color: #fff;
-  padding: 0.55rem 1.2rem;
-  border-radius: 7px;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.bento-btn:hover {
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
+.view-btn:hover {
+  background: #fff;
+  color: #714ddd;
   transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(113, 77, 221, 0.25);
 }
 
-/* ---- Adjusted Bento Item Heights ---- */
-.item-1 {
-  grid-area: item1;
-  height: 240px;
-}
-.item-2 {
-  grid-area: item2;
-  height: 500px;
-}
-.item-3 {
-  grid-area: item3;
-  height: 240px;
-}
-.item-4 {
-  grid-area: item4;
-  height: 500px;
-}
-.item-5 {
-  grid-area: item5;
-  height: 500px;
-}
-.item-6 {
-  grid-area: item6;
-  height: 240px;
+/* ===== Info Section ===== */
+.project-info {
+  padding: 1.5rem;
+  text-align: left;
 }
 
-/* ---- Scroll Animations ---- */
-.bento-card.visible {
-  animation: fadeInUp 1s ease forwards;
+.project-info h3 {
+  font-size: 1.3rem;
+  color: #30395e;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
-@keyframes fadeInUp {
+.project-info p {
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ===== Animation ===== */
+@keyframes fadeUp {
   from {
-    transform: translateY(40px);
     opacity: 0;
+    transform: translateY(30px);
   }
   to {
-    transform: translateY(0);
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* ---- Responsive Layout ---- */
-@media (max-width: 1024px) {
-  .bento-grid {
-    grid-template-areas:
-      "item1"
-      "item2"
-      "item3"
-      "item4"
-      "item5"
-      "item6";
-    grid-template-columns: 1fr;
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 4rem 6%;
   }
 
-  .item-1,
-  .item-2,
-  .item-3,
-  .item-4,
-  .item-5,
-  .item-6 {
-    height: 260px;
+  .project-image {
+    height: 200px;
+  }
+
+  .projects-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .project-info {
+    padding: 1.2rem;
+  }
+
+  .project-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .project-info p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-section {
+    padding: 3.5rem 5%;
+  }
+
+  .project-image {
+    height: 180px;
+  }
+
+  .view-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
   }
 }
