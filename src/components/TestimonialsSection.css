@@ -130,8 +130,71 @@
   }
 }
 
+/* 🔧 Mobile Fix */
 @media (max-width: 768px) {
+  .testimonial-section {
+    padding: 70px 15px;
+  }
+
+  .testimonial-header {
+    margin-bottom: 40px;
+    padding: 0 10px;
+  }
+
+  .testimonial-header h2 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+
+  .testimonial-header p {
+    font-size: 0.95rem;
+  }
+
   .testimonial-card {
-    margin: 0 8px;
+    margin: 0 auto;
+    padding: 25px 18px;
+    text-align: center; /* Center content for mobile */
+    min-height: auto;
+    max-width: 90%;
+  }
+
+  .stars {
+    justify-content: center;
+  }
+
+  .client-info {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .client-info img {
+    margin-bottom: 6px;
+  }
+
+  /* Center arrows below slider on mobile */
+  .arrow {
+    position: static;
+    margin: 20px 6px 0;
+  }
+
+  .arrow.prev,
+  .arrow.next {
+    left: auto;
+    right: auto;
+    transform: none;
+  }
+
+  /* Align arrows horizontally */
+  .slick-prev,
+  .slick-next {
+    position: static !important;
+  }
+
+  .slick-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
