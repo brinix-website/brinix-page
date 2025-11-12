@@ -1,146 +1,117 @@
-import React from "react";
-import { motion } from "framer-motion";
-import Slider from "react-slick";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Star,
-} from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import "./TestimonialsSection.css";
-
-// Import slick-carousel styles
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 const testimonials = [
   {
     name: "Ahsan",
-    title: "Business Company",
+    role: "Business",
     review:
-      "Working with this team was a seamless experience. Their attention to detail and creativity made our project a success.",
-    image: "https://randomuser.me/api/portraits/men/11.jpg",
+      "The design quality and communication were exceptional. The final product was sleek, fast, and exceeded our expectations.",
+    image: "https://randomuser.me/api/portraits/men/64.jpg",
   },
   {
-    name: "Amalnass",
-    title: "Managing Director",
+    name: "Amalnass IT Company",
+    role: "Managing Director",
     review:
-      "They transformed our digital presence beautifully. Every step was handled professionally and efficiently.",
-    image: "https://randomuser.me/api/portraits/men/12.jpg",
-  },
-  {
-    name: "IT Company",
-    title: "Managing Director",
-    review:
-      "A fantastic experience! Their design approach truly brought our brand to life — highly recommend their services.",
-    image: "https://randomuser.me/api/portraits/men/13.jpg",
-  },
-  {
-    name: "Aananth",
-    title: "Co-Founder",
-    review:
-      "The UI/UX design exceeded expectations. Everything feels intuitive and perfectly aligned with our brand.",
-    image: "https://randomuser.me/api/portraits/women/21.jpg",
-  },
-  {
-    name: "Business Company",
-    title: "Managing Director",
-    review:
-      "Excellent collaboration and creative thinking throughout. The team was responsive and innovative.",
-    image: "https://randomuser.me/api/portraits/men/22.jpg",
+      "They understood our vision instantly and delivered a flawless UI/UX experience. One of the best collaborations we’ve had.",
+    image: "https://randomuser.me/api/portraits/men/42.jpg",
   },
   {
     name: "Shipping Company",
-    title: "Managing Director",
+    role: "Managing Director",
     review:
-      "They delivered exactly what we envisioned and more. The end result speaks volumes of their expertise.",
-    image: "https://randomuser.me/api/portraits/women/23.jpg",
+      "Their process was smooth, professional, and truly innovative. We’re incredibly happy with the final results.",
+    image: "https://randomuser.me/api/portraits/men/36.jpg",
+  },
+  {
+    name: "IT Company",
+    role: "Managing Director",
+    review:
+      "Top-tier talent with an eye for detail. They helped transform our platform into a modern, elegant experience.",
+    image: "https://randomuser.me/api/portraits/men/15.jpg",
+  },
+  {
+    name: "Aananth IT Company",
+    role: "Co-Founder",
+    review:
+      "Excellent technical execution paired with beautiful design. Their work added immense value to our product.",
+    image: "https://randomuser.me/api/portraits/men/27.jpg",
+  },
+  {
+    name: "Business Company",
+    role: "Managing Director",
+    review:
+      "They delivered everything on time with absolute precision. The attention to design and performance was outstanding.",
+    image: "https://randomuser.me/api/portraits/men/9.jpg",
   },
 ];
 
-// Custom Arrow Components
-const PrevArrow = ({ onClick }) => (
-  <button className="arrow prev" onClick={onClick}>
-    <ArrowLeft />
-  </button>
-);
-
-const NextArrow = ({ onClick }) => (
-  <button className="arrow next" onClick={onClick}>
-    <ArrowRight />
-  </button>
-);
+const transitionVariants = {
+  enter: { opacity: 0, y: 30 },
+  center: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  exit: { opacity: 0, y: -30, transition: { duration: 0.6 } },
+};
 
 const TestimonialsSection = () => {
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 800,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3500,
-    pauseOnHover: true,
-    arrows: true,
-    prevArrow: <PrevArrow />,
-    nextArrow: <NextArrow />,
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: { slidesToShow: 2 },
-      },
-      {
-        breakpoint: 768,
-        settings: { slidesToShow: 1 },
-      },
-    ],
-  };
+  const [index, setIndex] = useState(0);
+
+  // Auto-slide every 6 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section className="testimonials-section" id="testimonials">
-      <motion.div
-        className="testimonial-header"
-        initial={{ opacity: 0, y: 50 }}
+    <section className="testimonial-section">
+      <motion.h2
+        className="testimonial-title"
+        initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.7 }}
         viewport={{ once: true }}
       >
-        <h2>
-          Which is what our popular <br />
-          <span>customers are saying</span>
-        </h2>
-        <p>
-          Hear from some of our clients who experienced success through our
-          design, development, and creative solutions.
-        </p>
-      </motion.div>
+        What Our Clients Say
+      </motion.h2>
 
-      <motion.div
-        className="testimonial-slider"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <Slider {...settings}>
-          {testimonials.map((item, index) => (
-            <div className="testimonial-card" key={index}>
-              <div className="stars">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} fill="#FFD700" stroke="none" size={18} />
-                ))}
-              </div>
-              <p className="review">“{item.review}”</p>
-              <div className="client-info">
-                <img src={item.image} alt={item.name} />
-                <div>
-                  <h4>{item.name}</h4>
-                  <span>{item.title}</span>
-                </div>
-              </div>
-            </div>
+      <div className="testimonial-container">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={index}
+            className="testimonial-card"
+            variants={transitionVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+          >
+            <motion.img
+              src={testimonials[index].image}
+              alt={testimonials[index].name}
+              className="testimonial-avatar"
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.5 }}
+            />
+            <p className="testimonial-text">
+              “{testimonials[index].review}”
+            </p>
+            <h4 className="testimonial-name">{testimonials[index].name}</h4>
+            <span className="testimonial-role">{testimonials[index].role}</span>
+          </motion.div>
+        </AnimatePresence>
+
+        <div className="testimonial-dots">
+          {testimonials.map((_, i) => (
+            <span
+              key={i}
+              className={`dot ${i === index ? "active" : ""}`}
+              onClick={() => setIndex(i)}
+            />
           ))}
-        </Slider>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 };

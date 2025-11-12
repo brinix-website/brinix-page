@@ -3,42 +3,57 @@
   <head>
     <!-- ✅ Basic SEO -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Brinix | Creative Design & Development Studio</title>
     <meta
       name="description"
-      content="Brinix is a creative agency specializing in UI/UX design, web development, branding, and digital marketing. We help brands build stunning digital experiences."
+      content="Brinix is a creative design and development studio specializing in UI/UX design, web development, branding, and digital marketing. We build meaningful digital experiences for brands worldwide."
     />
     <meta
       name="keywords"
-      content="Brinix, design agency, web development, UI/UX, digital marketing, branding, creative studio"
+      content="Brinix, design agency, web development, UI/UX design, creative studio, digital marketing, branding, creative agency, website design"
     />
     <meta name="author" content="Brinix Studio" />
+    <meta name="robots" content="index, follow" />
 
-    <!-- ✅ Open Graph (For social media sharing) -->
+    <!-- ✅ Open Graph (Facebook, LinkedIn, etc.) -->
     <meta property="og:title" content="Brinix | Creative Design & Development Studio" />
     <meta
       property="og:description"
-      content="Transform your brand with Brinix — experts in web design, development, and digital marketing."
+      content="Transform your brand with Brinix — experts in web design, development, branding, and digital marketing."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://yourdomain.vercel.app/" />
-    <meta property="og:image" content="https://yourdomain.vercel.app/og-image.jpg" />
+    <meta property="og:url" content="https://brinix-page.vercel.app" />
+    <meta property="og:image" content="https://brinix-page.vercel.app/og-image.jpg" />
+    <meta property="og:site_name" content="Brinix Studio" />
 
     <!-- ✅ Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Brinix | Design & Development Studio" />
+    <meta name="twitter:title" content="Brinix | Creative Design & Development Studio" />
     <meta
       name="twitter:description"
-      content="We create powerful digital experiences that grow your brand."
+      content="We create powerful, human-centered digital experiences that help brands grow."
     />
-    <meta name="twitter:image" content="https://yourdomain.vercel.app/og-image.jpg" />
-
-    <!-- ✅ Favicon -->
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="twitter:image" content="https://brinix-page.vercel.app/og-image.jpg" />
+    <meta name="twitter:creator" content="@brin_ix" />
 
     <!-- ✅ Canonical URL -->
-    <link rel="canonical" href="https://yourdomain.vercel.app/" />
+    <link rel="canonical" href="https://brinix-page.vercel.app" />
+
+    <!-- ✅ Favicons -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <meta name="theme-color" content="#714DDD" />
+
+    <!-- ✅ Preconnect & Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Example font preload (replace if needed) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- ✅ Structured Data (Schema.org JSON-LD) -->
     <script type="application/ld+json">
@@ -46,16 +61,27 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Brinix",
-        "url": "https://yourdomain.vercel.app",
-        "logo": "https://yourdomain.vercel.app/logo.png",
+        "url": "https://brinix-page.vercel.app",
+        "logo": "https://brinix-page.vercel.app/logo.png",
+        "description": "Brinix is a creative design and development studio offering UI/UX design, web development, branding, and digital marketing solutions.",
+        "foundingDate": "2025",
         "sameAs": [
-          "https://instagram.com/brinix",
+          "https://www.instagram.com/brin_ix/",
           "https://linkedin.com/company/brinix"
-        ]
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "infobrinix@gmail.com",
+          "areaServed": "Worldwide",
+          "availableLanguage": ["English"]
+        }
       }
     </script>
   </head>
+
   <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   </body>
 </html>
