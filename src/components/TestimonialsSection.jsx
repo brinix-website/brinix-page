@@ -33,25 +33,25 @@ const testimonials = [
     title: "Co-Founder",
     review:
       "The UI/UX design exceeded expectations. Everything feels intuitive and perfectly aligned with our brand.",
-    image: "https://randomuser.me/api/portraits/women/21.jpg",
+    image: "https://randomuser.me/api/portraits/men/14.jpg",
   },
   {
     name: "Business Company",
     title: "Managing Director",
     review:
       "Excellent collaboration and creative thinking throughout. The team was responsive and innovative.",
-    image: "https://randomuser.me/api/portraits/men/22.jpg",
+    image: "https://randomuser.me/api/portraits/men/15.jpg",
   },
   {
     name: "Shipping Company",
     title: "Managing Director",
     review:
       "They delivered exactly what we envisioned and more. The end result speaks volumes of their expertise.",
-    image: "https://randomuser.me/api/portraits/women/23.jpg",
+    image: "https://randomuser.me/api/portraits/men/16.jpg",
   },
 ];
 
-// Custom Arrow Components
+// Custom Arrows
 const PrevArrow = ({ onClick }) => (
   <button className="arrow prev" onClick={onClick} aria-label="Previous">
     <ArrowLeft size={22} />
