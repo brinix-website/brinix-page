@@ -1,14 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Slider from "react-slick";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Star,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight, Star } from "lucide-react";
 import "./TestimonialsSection.css";
-
-// Import slick-carousel styles
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -59,22 +53,22 @@ const testimonials = [
 
 // Custom Arrow Components
 const PrevArrow = ({ onClick }) => (
-  <button className="arrow prev" onClick={onClick}>
-    <ArrowLeft />
+  <button className="arrow prev" onClick={onClick} aria-label="Previous">
+    <ArrowLeft size={22} />
   </button>
 );
 
 const NextArrow = ({ onClick }) => (
-  <button className="arrow next" onClick={onClick}>
-    <ArrowRight />
+  <button className="arrow next" onClick={onClick} aria-label="Next">
+    <ArrowRight size={22} />
   </button>
 );
 
 const TestimonialsSection = () => {
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
-    speed: 800,
+    speed: 700,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
@@ -85,12 +79,12 @@ const TestimonialsSection = () => {
     nextArrow: <NextArrow />,
     responsive: [
       {
-        breakpoint: 992,
-        settings: { slidesToShow: 2 },
+        breakpoint: 1024,
+        settings: { slidesToShow: 2, arrows: true },
       },
       {
         breakpoint: 768,
-        settings: { slidesToShow: 1 },
+        settings: { slidesToShow: 1, arrows: false, dots: true },
       },
     ],
   };
@@ -105,18 +99,17 @@ const TestimonialsSection = () => {
         viewport={{ once: true }}
       >
         <h2>
-          Which is what our popular <br />
-          <span>customers are saying</span>
+          What our <span>customers are saying</span>
         </h2>
         <p>
-          Hear from some of our clients who experienced success through our
-          design, development, and creative solutions.
+          Hear from our clients who achieved success through our design,
+          development, and creative services.
         </p>
       </motion.div>
 
       <motion.div
         className="testimonial-slider"
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
@@ -132,7 +125,7 @@ const TestimonialsSection = () => {
               <p className="review">“{item.review}”</p>
               <div className="client-info">
                 <img src={item.image} alt={item.name} />
-                <div>
+                <div className="client-text">
                   <h4>{item.name}</h4>
                   <span>{item.title}</span>
                 </div>

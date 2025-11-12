@@ -112,7 +112,6 @@ const Footer = () => {
           <div className="footer-contact-item">
             <FiPhoneCall className="footer-icon" />
             <a href="tel:+919876543210">+91 8122129168</a>
-            <a href="tel:+919876543210">+91 7338830353</a>
           </div>
         </div>
       </div>
