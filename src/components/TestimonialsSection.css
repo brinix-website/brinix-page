@@ -1,4 +1,4 @@
-/* Premium Light Mode Testimonial Layout */
+/* Premium Light Mode Testimonial Layout (Conflict-Free Version) */
 
 .reviews-section {
   background: #ffffff;
@@ -42,7 +42,7 @@
   margin-top: 4px;
 }
 
-/* --- Layout --- */
+/* Layout */
 .reviews-layout {
   display: grid;
   grid-template-columns: 1fr 420px 1fr;
@@ -64,7 +64,7 @@
   will-change: transform;
 }
 
-/* --- Review Card --- */
+/* Review Card */
 .review-card {
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.05);
@@ -109,7 +109,7 @@
   color: #1f2937;
 }
 
-/* --- Center Card --- */
+/* Center Card */
 .center-card {
   background: #ffffff;
   border-radius: 16px;
@@ -122,17 +122,13 @@
   align-items: center;
 }
 
+/* FIXED: Using actual image, no conflict */
 .avatar-large {
-  width: 120px;
-  height: 120px;
-  border-radius: 12px;
-  background: #f3f4f6;
-  font-size: 32px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #111827;
+  width: 160px;
+  height: 180px;
+  border-radius: 16px;
+  object-fit: cover;
+  object-position: center top;
   margin-bottom: 10px;
 }
 
@@ -173,7 +169,7 @@
   color: #6b7280;
 }
 
-/* --- Responsive --- */
+/* Responsive */
 @media (max-width: 900px) {
   .reviews-layout {
     grid-template-columns: 1fr;

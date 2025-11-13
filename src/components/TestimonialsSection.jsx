@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import myImage from "../assets/myImage.jpg";
 import "./TestimonialsSection.css";
 
 const testimonialsLeft = [
@@ -72,9 +73,8 @@ const TestimonialsSection = () => {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
 
-  // Auto vertical scrolling animation loop
   useEffect(() => {
-    const scrollSpeed = 0.3; // smaller = slower
+    const scrollSpeed = 0.3;
     let leftPos = 0;
     let rightPos = 0;
 
@@ -83,10 +83,8 @@ const TestimonialsSection = () => {
         leftPos += scrollSpeed;
         rightPos += scrollSpeed;
 
-        if (leftPos >= leftRef.current.scrollHeight / 2)
-          leftPos = 0;
-        if (rightPos >= rightRef.current.scrollHeight / 2)
-          rightPos = 0;
+        if (leftPos >= leftRef.current.scrollHeight / 2) leftPos = 0;
+        if (rightPos >= rightRef.current.scrollHeight / 2) rightPos = 0;
 
         leftRef.current.style.transform = `translateY(-${leftPos}px)`;
         rightRef.current.style.transform = `translateY(-${rightPos}px)`;
@@ -114,7 +112,6 @@ const TestimonialsSection = () => {
         </motion.div>
 
         <div className="reviews-layout">
-          {/* Left Column */}
           <div className="column">
             <div className="scroll-column" ref={leftRef}>
               {[...testimonialsLeft, ...testimonialsLeft].map((t, i) => (
@@ -132,7 +129,6 @@ const TestimonialsSection = () => {
             </div>
           </div>
 
-          {/* Center Featured Card */}
           <motion.div
             className="center-card"
             initial={{ opacity: 0, y: 30 }}
@@ -140,8 +136,8 @@ const TestimonialsSection = () => {
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            <div className="avatar-large">A</div>
-            <span className="badge-role">Managing Director</span>
+            <img src={myImage} alt="Profile" className="avatar-large" />
+            <span className="badge-role">Creative Director</span>
             <p className="center-quote">
               “Blending creativity with strategy, I help businesses elevate their brand presence through purposeful design and meaningful user experiences that drive real results.”
             </p>
@@ -158,7 +154,6 @@ const TestimonialsSection = () => {
             </div>
           </motion.div>
 
-          {/* Right Column */}
           <div className="column">
             <div className="scroll-column" ref={rightRef}>
               {[...testimonialsRight, ...testimonialsRight].map((t, i) => (
