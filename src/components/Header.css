@@ -9,7 +9,7 @@ body { padding-top: 72px; }
   top: 0;
   inset-inline: 0;
   height: 72px;
-  background: rgba(0, 0, 0, 0.95);
+  background: linear-gradient(135deg, #000 20%, #714DDD 100%);
   backdrop-filter: blur(10px);
   z-index: 100;
   display: grid;
@@ -89,7 +89,7 @@ body { padding-top: 72px; }
 }
 
 .nav a:hover {
-  color: #714DDD;
+  color: #000;
   transform: translateY(-2px);
 }
 
@@ -100,7 +100,7 @@ body { padding-top: 72px; }
 /* --- CTA --------------------------------------------------------------- */
 .contact-btn {
   justify-self: end;
-  background-color: #714DDD;
+  background-color: #30395E;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -111,7 +111,8 @@ body { padding-top: 72px; }
 }
 
 .contact-btn:hover {
-  background-color: #5c3cc3;
+  background-color: #fff;
+  color: #714DDD;
   transform: translateY(-2px);
 }
 

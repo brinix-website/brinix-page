@@ -22,7 +22,7 @@
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  filter: brightness(100%);
+  filter: brightness(50%);
   pointer-events: none; /* ✅ makes sure video doesn’t block clicks */
 }
 

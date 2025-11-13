@@ -24,7 +24,7 @@ const AboutSection = () => {
         >
           <button className="about-tag">About Us</button>
           <h2 className="about-title">
-            Introduction
+            Who We Are
           </h2>
           <p className="about-description">
             At Brinix, we believe in turning ideas into impactful digital experiences. We’re a creative digital agency specializing in UI/UX Design, Front-End Development, Branding, Digital Marketing, and more helping businesses and individuals build a strong online presence with modern, result-driven solutions.

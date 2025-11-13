@@ -1,7 +1,9 @@
+/* === FULL UPDATED FOOTER WITH HIGH‑QUALITY ICONS + UPDATED TEXT COLORS === */
+
 /* ===== Footer Base ===== */
 .footer {
-  background: linear-gradient(135deg, #ffffff 20%, #714DDD 100%);
-  color: #30395E;
+  background: linear-gradient(135deg, #000 20%, #714DDD 100%);
+  color: #f1f5f9; /* Updated text color */
   padding: 5rem 8% 3rem;
   font-family: "Poppins", sans-serif;
   overflow: hidden;
@@ -43,30 +45,29 @@
   height: auto;
   object-fit: contain;
   display: block;
-  filter: none;
   opacity: 1;
 }
 
 .footer-logo-text {
   font-size: 2.3rem;
   font-weight: 800;
-  color: #30395E;
+  color: #fff;
   letter-spacing: 1px;
 }
 
 .footer-description {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: #30395E;
+  color: #f1f5f9;
   max-width: 360px;
 }
 
 .footer-description span {
-  color: #714DDD;
+  color: #d8b4fe;
   font-weight: 600;
 }
 
-/* ===== Social Icons ===== */
+/* ===== Social Icons – High Quality ===== */
 .footer-socials {
   display: flex;
   gap: 14px;
@@ -74,19 +75,23 @@
 }
 
 .footer-socials a {
-  color: #30395E;
-  background: rgba(255, 255, 255, 0.15);
-  padding: 11px;
-  border-radius: 50%;
-  font-size: 1.3rem;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 18px;
+  border-radius: 16px;
+  font-size: 1.45rem; /* Bigger, premium */
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
 }
 
 .footer-socials a:hover {
   background: #fff;
   color: #714DDD;
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.25);
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 8px 22px rgba(255, 255, 255, 0.3);
 }
 
 /* ===== Section Headings ===== */
@@ -95,7 +100,7 @@
 .footer-contact h3 {
   font-size: 1.35rem;
   margin-bottom: 1.1rem;
-  color: #30395E;
+  color: #fff;
   font-weight: 700;
   position: relative;
 }
@@ -107,7 +112,7 @@
   display: block;
   width: 40px;
   height: 3px;
-  background: #714DDD;
+  background: #d8b4fe;
   margin-top: 0.4rem;
   border-radius: 3px;
 }
@@ -128,62 +133,63 @@
 /* ===== Quick Links ===== */
 .footer-links a {
   text-decoration: none;
-  color: #30395E;
+  color: #f1f5f9;
   font-size: 1.05rem;
   transition: color 0.3s ease, padding-left 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: #714DDD;
+  color: #d8b4fe;
   padding-left: 6px;
 }
 
 /* ===== Footer Services ===== */
 .footer-services li {
   font-size: 1.05rem;
-  color: #30395E;
+  color: #f1f5f9;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .footer-services li:hover {
-  color: #714DDD;
+  color: #d8b4fe;
   transform: translateX(5px);
 }
 
-/* ===== Contact Section (Updated Alignment Fix) ===== */
+/* ===== Contact Section ===== */
 .footer-contact-item {
   display: flex;
-  align-items: center; /* ✅ Centers icons and text perfectly */
+  align-items: center;
   gap: 12px;
   margin-bottom: 16px;
 }
 
+/* High Quality Contact Icons */
 .footer-icon {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: #fff;
-  border-radius: 50%;
-  min-width: 36px;
-  height: 36px;
+  /* background: rgba(255, 255, 255, 0.18); */
+  border-radius: 12px;
+  min-width: 32px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  margin-top: 0;
-  padding: 0;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .footer-contact a,
 .footer-contact p {
   font-size: 1.05rem;
-  color: #30395E;
+  color: #f1f5f9;
   text-decoration: none;
   transition: color 0.3s ease;
   line-height: 1.6;
 }
 
 .footer-contact a:hover {
-  color: #714DDD;
+  color: #d8b4fe;
 }
 
 /* ===== Newsletter Section ===== */
@@ -211,6 +217,27 @@
   line-height: 1.6;
 }
 
+/* ===== Bottom Bar ===== */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.4rem;
+  color: #f1f5f9;
+  font-size: 1.05rem;
+}
+
+.made-with {
+  opacity: 0.9;
+  font-size: 1rem;
+}
+
+
+/* ===== Newsletter Form ===== */
 .newsletter-form {
   display: flex;
   justify-content: center;
@@ -264,7 +291,7 @@
   }
 }
 
-/* ===== Success & Error ===== */
+/* ===== Success & Error Messages ===== */
 .success-message {
   color: #27ae60;
   font-weight: 600;
@@ -277,26 +304,7 @@
   margin-top: 1rem;
 }
 
-/* ===== Bottom Bar ===== */
-.footer-bottom {
-  border-top: 1px solid #fff;
-  margin-top: 4rem;
-  padding-top: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0.4rem;
-  color: #30395E;
-  font-size: 1.05rem;
-}
-
-.made-with {
-  opacity: 0.9;
-  font-size: 1rem;
-}
-
-/* ===== Responsive Design ===== */
+/* ===== Responsive Styling ===== */
 @media (max-width: 992px) {
   .footer {
     padding: 4rem 6% 2.5rem;

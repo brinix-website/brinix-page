@@ -62,9 +62,9 @@ const projectsData = [
   },
   {
     id: 7,
-    title: "Logo Design",
+    title: "Landing Page Development",
     description:
-      "Developed a sleek and tech-driven logo design that captures the innovation and reliability of the IT services brand identity.",
+      "Created a clean and engaging landing page for an online course, making it easy for users to understand the content and enroll quickly.",
     image: project7,
     link: "/project/portfolio-builder",
   },

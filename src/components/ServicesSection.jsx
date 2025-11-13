@@ -8,7 +8,7 @@ import {
   Video,
   Star,
   Globe,
-  FileText,
+  Server,
 } from "lucide-react";
 import "./ServicesSection.css";
 
@@ -56,10 +56,10 @@ const services = [
       "Developing dynamic and fully customizable WordPress websites for all needs.",
   },
   {
-    icon: <FileText size={40} />,
-    title: "Resume Building",
+    icon: <Server size={40} />,
+    title: "Hosting",
     description:
-      "I design professional, ATS-friendly resumes that highlight skills, education, and achievements effectively.",
+      "Reliable and secure website hosting with fast performance and easy management.",
   },
 ];
 

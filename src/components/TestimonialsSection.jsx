@@ -1,139 +1,179 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import Slider from "react-slick";
-import { ArrowLeft, ArrowRight, Star } from "lucide-react";
+import myImage from "../assets/myImage.jpg"; // <-- Added import
 import "./TestimonialsSection.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
-const testimonials = [
+const testimonialsLeft = [
   {
     name: "Ahsan",
-    title: "Business Company",
+    role: "Business",
     review:
-      "Working with this team was a seamless experience. Their attention to detail and creativity made our project a success.",
-    image: "https://randomuser.me/api/portraits/men/11.jpg",
+      "The logo perfectly captures our brand’s personality simple, smart, and timeless. The design process was smooth, and the final result feels truly unique to us.",
   },
   {
-    name: "Amalnass",
-    title: "Managing Director",
+    name: "Amalnass IT Company",
+    role: "Managing Director",
     review:
-      "They transformed our digital presence beautifully. Every step was handled professionally and efficiently.",
-    image: "https://randomuser.me/api/portraits/men/12.jpg",
+      "We wanted a modern refresh without losing our brand’s essence, and that’s exactly what we got. The redesigned logo feels bold, refined, and perfectly aligned with our vision.",
   },
   {
     name: "IT Company",
-    title: "Managing Director",
+    role: "Managing Director",
     review:
-      "A fantastic experience! Their design approach truly brought our brand to life — highly recommend their services.",
-    image: "https://randomuser.me/api/portraits/men/13.jpg",
-  },
-  {
-    name: "Aananth",
-    title: "Co-Founder",
-    review:
-      "The UI/UX design exceeded expectations. Everything feels intuitive and perfectly aligned with our brand.",
-    image: "https://randomuser.me/api/portraits/men/14.jpg",
-  },
-  {
-    name: "Business Company",
-    title: "Managing Director",
-    review:
-      "Excellent collaboration and creative thinking throughout. The team was responsive and innovative.",
-    image: "https://randomuser.me/api/portraits/men/15.jpg",
+      "Our new website looks incredible and functions flawlessly. The design reflects our brand story beautifully while keeping the user experience front and center. A total transformation!",
   },
   {
     name: "Shipping Company",
-    title: "Managing Director",
+    role: "Managing Director",
     review:
-      "They delivered exactly what we envisioned and more. The end result speaks volumes of their expertise.",
-    image: "https://randomuser.me/api/portraits/men/16.jpg",
+      "Every design piece delivered was visually stunning and on-brand. The attention to composition, color, and detail truly set the work apart exceptional creative quality.",
+  },
+  {
+    name: "Business Company",
+    role: "Managing Director",
+    review:
+      "The app UI is intuitive, sleek, and visually consistent throughout. Every screen feels thoughtfully designed, enhancing both usability and aesthetic appeal. We’re genuinely impressed.",
   },
 ];
 
-// Custom Arrows
-const PrevArrow = ({ onClick }) => (
-  <button className="arrow prev" onClick={onClick} aria-label="Previous">
-    <ArrowLeft size={22} />
-  </button>
-);
-
-const NextArrow = ({ onClick }) => (
-  <button className="arrow next" onClick={onClick} aria-label="Next">
-    <ArrowRight size={22} />
-  </button>
-);
+const testimonialsRight = [
+  {
+    name: "Business Company",
+    role: "Managing Director",
+    review:
+      "he app UI is intuitive, sleek, and visually consistent throughout. Every screen feels thoughtfully designed, enhancing both usability and aesthetic appeal. We’re genuinely impressed.",
+  },
+  {
+    name: "IT Company",
+    role: "Managing Director",
+    review:
+      "Our new website looks incredible and functions flawlessly. The design reflects our brand story beautifully while keeping the user experience front and center. A total transformation!",
+  },
+  {
+    name: "Shipping Company",
+    role: "Managing Director",
+    review:
+      "Every design piece delivered was visually stunning and on-brand. The attention to composition, color, and detail truly set the work apart exceptional creative quality.",
+  },
+  {
+    name: "Amalnass IT Company",
+    role: "Managing Directot",
+    review:
+      "We wanted a modern refresh without losing our brand’s essence, and that’s exactly what we got. The redesigned logo feels bold, refined, and perfectly aligned with our vision.",
+  },
+  {
+    name: "Ahsan",
+    role: "Business",
+    review:
+      "The logo perfectly captures our brand’s personality simple, smart, and timeless. The design process was smooth, and the final result feels truly unique to us.",
+  },
+];
 
 const TestimonialsSection = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 700,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3500,
-    pauseOnHover: true,
-    arrows: true,
-    prevArrow: <PrevArrow />,
-    nextArrow: <NextArrow />,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 2, arrows: true },
-      },
-      {
-        breakpoint: 768,
-        settings: { slidesToShow: 1, arrows: false, dots: true },
-      },
-    ],
-  };
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
+
+  useEffect(() => {
+    const scrollSpeed = 0.3;
+    let leftPos = 0;
+    let rightPos = 0;
+
+    const scroll = () => {
+      if (leftRef.current && rightRef.current) {
+        leftPos += scrollSpeed;
+        rightPos += scrollSpeed;
+
+        if (leftPos >= leftRef.current.scrollHeight / 2) leftPos = 0;
+        if (rightPos >= rightRef.current.scrollHeight / 2) rightPos = 0;
+
+        leftRef.current.style.transform = `translateY(-${leftPos}px)`;
+        rightRef.current.style.transform = `translateY(-${rightPos}px)`;
+      }
+      requestAnimationFrame(scroll);
+    };
+    scroll();
+  }, []);
 
   return (
-    <section className="testimonials-section" id="testimonials">
-      <motion.div
-        className="testimonial-header"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <h2>
-          What our <span>customers are saying</span>
-        </h2>
-        <p>
-          Hear from our clients who achieved success through our design,
-          development, and creative services.
-        </p>
-      </motion.div>
+    <section className="reviews-section">
+      <div className="reviews-container">
+        <motion.div
+          className="reviews-header"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <span className="header-badge">Cient Testimonial</span>
+          <h2 className="header-title">
+            Hear It From the <br />
+            <span>Brands That Trust Us</span>
+          </h2>
+        </motion.div>
 
-      <motion.div
-        className="testimonial-slider"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <Slider {...settings}>
-          {testimonials.map((item, index) => (
-            <div className="testimonial-card" key={index}>
-              <div className="stars">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} fill="#FFD700" stroke="none" size={18} />
-                ))}
-              </div>
-              <p className="review">“{item.review}”</p>
-              <div className="client-info">
-                <img src={item.image} alt={item.name} />
-                <div className="client-text">
-                  <h4>{item.name}</h4>
-                  <span>{item.title}</span>
+        <div className="reviews-layout">
+          <div className="column">
+            <div className="scroll-column" ref={leftRef}>
+              {[...testimonialsLeft, ...testimonialsLeft].map((t, i) => (
+                <div className="review-card" key={i}>
+                  <div className="review-meta">
+                    <div className="avatar">{t.name[0]}</div>
+                    <div>
+                      <p className="name">{t.name}</p>
+                      <p className="role">{t.role}</p>
+                    </div>
+                  </div>
+                  <p className="review-text">“{t.review}”</p>
                 </div>
+              ))}
+            </div>
+          </div>
+
+          <motion.div
+            className="center-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+          >
+            {/* Updated avatar-large to use image */}
+            <img src={myImage} alt="Profile" className="avatar-large" />
+
+            <span className="badge-role">Creative Director</span>
+            <p className="center-quote">
+              “Blending creativity with strategy, I help businesses elevate their brand presence through purposeful design and meaningful user experiences that drive real results.”
+            </p>
+
+            <div className="center-stats">
+              <div>
+                <h3>95%</h3>
+                <p>Satisfied Client Rate</p>
+              </div>
+              <div>
+                <h3>03+</h3>
+                <p>Experience</p>
               </div>
             </div>
-          ))}
-        </Slider>
-      </motion.div>
+          </motion.div>
+
+          <div className="column">
+            <div className="scroll-column" ref={rightRef}>
+              {[...testimonialsRight, ...testimonialsRight].map((t, i) => (
+                <div className="review-card" key={i}>
+                  <div className="review-meta">
+                    <div className="avatar">{t.name[0]}</div>
+                    <div>
+                      <p className="name">{t.name}</p>
+                      <p className="role">{t.role}</p>
+                    </div>
+                  </div>
+                  <p className="review-text">“{t.review}”</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
